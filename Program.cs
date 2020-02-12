@@ -61,26 +61,11 @@ namespace C_sharp_Exercise_5
             }
 
             //sort alphabetically
-            List<string> alphaSort = new List<string>();
-            alphaSort.Add("ZZZZZZZZZZZZZZZZZZZZ");
-            foreach (string item in shortHalf)
-            {
-                int j = 0;
-                foreach(string testItem in alphaSort)
-                {
-                    if (String.Compare(item, testItem) < 0)
-                    {
-                        alphaSort.Insert(j, item);
-                        break;
-                    }
-                    j++;
-                }
-            }
-            alphaSort.RemoveAt(alphaSort.Count-1);
+            shortHalf.Sort();
             
             //output results
             int index = 0;
-            foreach (string item in alphaSort)
+            foreach (string item in shortHalf)
             {
                 index++;
                 Console.WriteLine("{0}: {1}", index, item);
