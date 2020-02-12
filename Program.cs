@@ -28,16 +28,16 @@ namespace C_sharp_Exercise_5
             lengthSorted.Add("ZZZZZZZZZZZZZZZZZZZZ");
             foreach (string item in myList)
             {
-            int i=0;
-            foreach (string testItem in lengthSorted)
-            {
-                if (item.Length <= testItem.Length)
+                int i=0;
+                foreach (string testItem in lengthSorted)
                 {
-                lengthSorted.Insert(i, item);
-                break;
+                    if (item.Length <= testItem.Length)
+                    {
+                    lengthSorted.Insert(i, item);
+                    break;
+                    }
+                    i++;
                 }
-                i++;
-            }
             }
             //remove the dummy item
             lengthSorted.RemoveAt(lengthSorted.Count-1);
@@ -49,15 +49,15 @@ namespace C_sharp_Exercise_5
             int itemCounter = 0;
             foreach (string item in lengthSorted)
             {
-            if (itemCounter < half)
-            {
-                shortHalf.Add(item);
-            }
-            else
-            {
-                longHalf.Add(item);
-            }
-            itemCounter++;
+                if (itemCounter < half)
+                {
+                    shortHalf.Add(item);
+                }
+                else
+                {
+                    longHalf.Add(item);
+                }
+                itemCounter++;
             }
 
             //sort alphabetically
@@ -65,16 +65,16 @@ namespace C_sharp_Exercise_5
             alphaSort.Add("ZZZZZZZZZZZZZZZZZZZZ");
             foreach (string item in shortHalf)
             {
-            int j = 0;
-            foreach(string testItem in alphaSort)
-            {
-                if (String.Compare(item, testItem) < 0)
+                int j = 0;
+                foreach(string testItem in alphaSort)
                 {
-                    alphaSort.Insert(j, item);
-                    break;
+                    if (String.Compare(item, testItem) < 0)
+                    {
+                        alphaSort.Insert(j, item);
+                        break;
+                    }
+                    j++;
                 }
-                j++;
-            }
             }
             alphaSort.RemoveAt(alphaSort.Count-1);
             
@@ -85,7 +85,9 @@ namespace C_sharp_Exercise_5
                 index++;
                 Console.WriteLine("{0}: {1}", index, item);
             }
+
             Console.WriteLine("");
+
             foreach (string item in longHalf)
             {
                 Console.WriteLine("{0}: {1}", item.Length, item);
